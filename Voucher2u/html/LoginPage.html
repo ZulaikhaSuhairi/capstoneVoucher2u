@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/LoginPage.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-box">
+        <div class="image-container">
+        </div> <!-- Image background -->
+        <div class="login-form">
+            <!-- Logo added here -->
+            <div class="logo">
+                <img src="../assets/logo.png" alt="Optima Bank Logo">
+            </div>
+            <h2>Welcome to Optima Bank!</h2>
+            <p>Please enter your login details.</p>
+            <form action="#" id="loginForm">
+                <input type="email" placeholder="Enter your email" name="email" required>
+                <input type="password" placeholder="Password" name="password" required>
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+                <button type="submit">Log In</button>
+            </form>
+            <div id="message"></div>
+            <div class="links">
+                <a href="#" id="forgotPasswordLink">Forgot password?</a>
+                <a href="RegisterPage.html">Click here to Register</a>
+            </div>
+            <div class="divider">
+                <span>OR</span>
+            </div>
+            <div id="g_id_onload"
+                 data-client_id="326812386407-0cm9mlg0ap6dd4i3h8u12advl52ioj06.apps.googleusercontent.com"
+                 data-callback="handleGoogleLogin"
+                 data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin"
+                 data-type="standard"
+                 data-size="large"
+                 data-theme="outline"
+                 data-text="sign_in_with"
+                 data-shape="rectangular"
+                 data-logo_alignment="left">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Forgot Password Modal -->
+<div class="modal-overlay" id="forgotPasswordModal">
+    <div class="modal-container">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Reset Your Password</h3>
+                <button type="button" class="modal-close" id="closeForgotPasswordModal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your email address and we'll send you a link to reset your password.</p>
+                <form id="forgotPasswordForm">
+                    <input type="email" placeholder="Enter your email address" name="email" required>
+                    <button type="submit" class="modal-submit-btn">Send Reset Link</button>
+                </form>
+                <div id="forgotPasswordMessage" class="modal-message"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/user_auth.js"></script>
+<script src="../js/cartDisplay.js"></script> <!-- New script for global cart count -->
+</body>
+</html>

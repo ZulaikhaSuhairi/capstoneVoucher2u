@@ -1,1 +1,0 @@
-echo "# capstoneVoucher2u"

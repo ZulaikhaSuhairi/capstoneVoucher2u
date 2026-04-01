@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voucher2U - Loyalty Program</title>
+    <link rel="stylesheet" href="../css/HomePage.css">
+      <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../assets/logo.png" alt="Voucher2U Logo"> <!-- Placeholder for logo -->
+        OptimaBank
+    </div>
+    <div class="burger-menu">
+        <i class="fas fa-bars"></i>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li class="dropdown">
+            <a href="#">Category <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+            <li><a href="category.html?name=travel">Travel</a></li>
+            <li><a href="category.html?name=food">Food & Dining</a></li>
+            <li><a href="category.html?name=shopping">Shopping & Retail</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Support</a></li>
+    </ul>
+    <div class="search-bar">
+        <input type="text" placeholder="Search vouchers..." id="search-input">
+        <i class="fas fa-search"></i>
+    </div>
+    <div class="header-right">
+        <div class="cart">
+            <a href="ShoppingCart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">Cart (0)</span></a>
+        </div>
+        <div class="user-session-info">
+              <div class="profile-dropdown-container">
+                <a href="LoginPage.html" id="auth-link"><i class="fas fa-user"></i> Login</a>
+                <div class="dropdown-menu-profile">
+                  <a href="ProfilePage.html">My Account</a>
+                  <a href="#" id="logout-link">Logout</a>
+                </div>
+              </div>
+            <span class="points-display" id="user-points"></span>
+
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Optima Bank</h1>
+        <p>Welcome to Optima's Loyalty Program</p>
+    </div>
+</section>
+
+<section class="carousel">
+  <div class="carousel-container">
+    <div class="carousel-slide">
+      <img src="../assets/travel_ad.png" alt="Slide 1">
+    </div>
+    <div class="carousel-slide">
+      <img src="../assets/food_ad.png" alt="Slide 2">
+    </div>
+    <div class="carousel-slide">
+      <img src="../assets/fashion_ad.png" alt="Slide 3">
+    </div>
+  </div>
+
+  <!-- Navigation buttons -->
+  <button class="carousel-btn prev">&#10094;</button>
+  <button class="carousel-btn next">&#10095;</button>
+</section>
+
+
+<h2 class="section-title">Voucher Categories</h2>
+<section class="categories">
+    <!-- Travel -->
+    <div class="category-item travel">
+        <a href="category.html?name=travel">
+        <h3>Travel</h3>
+        <p>Exclusive deals on flights, hotels, and vacation packages.</p>
+    </a>
+    </div>
+    <!-- Food -->
+    <div class="category-item food">
+        <a href="category.html?name=food">
+        <h3>Food & Dining</h3>
+        <p>Discounts at restaurants, cafes, and delivery services.</p>
+    </a>
+    </div>
+    <!-- Shopping -->
+    <div class="category-item shopping">
+    <a href="category.html?name=shopping">
+        <h3>Shopping & Retail</h3>
+        <p>Savings on fashion, electronics, home goods, and more.</p>
+    </a>
+    </div>
+</section>
+
+<h2 class="section-title">Featured Vouchers</h2>
+<section class="featured-vouchers" id="featured-vouchers-container">
+    <!-- Featured voucher items will be injected here dynamically -->
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h4>About</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Vouchers</a></li>
+                <li><a href="#">Our story</a></li>
+            </ul>
+        </div>
+        <div class="footer-section help">
+            <h4>Help</h4>
+            <ul>
+                <li><a href="#">Redeem</a></li>
+                <li><a href="#">Issues</a></li>
+                <li><a href="#">FAQs</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact">
+            <h4>Contact</h4>
+            <p>Phone: (+1) 123 456 7893</p>
+            <p>Email: name@email.com</p>
+        </div>
+        <div class="footer-section promotions">
+            <h4>Receive new promotions</h4>
+            <div class="subscribe">
+                <input type="email" placeholder="Input your email">
+                <button>Subscribe</button>
+            </div>
+            <div class="social-links">
+                <a href="#"><img src="../assets/facebook_icon.png" alt="Facebook"></a> <!-- Placeholder for icons -->
+                <a href="#"><img src="../assets/twitter_icon.png" alt="Twitter"></a>
+                <a href="#"><img src="../assets/linkedin_icon.png" alt="LinkedIn"></a>
+                <a href="#"><img src="../assets/youtube_icon.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2022 Brand, Inc. | Privacy | Terms | Sitemap</p>
+        <p>Made with V</p>
+    </div>
+</footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".carousel-slide");
+        const prevBtn = document.querySelector(".carousel-btn.prev");
+        const nextBtn = document.querySelector(".carousel-btn.next");
+        const container = document.querySelector(".carousel-container");
+        let index = 0;
+
+        function showSlide(i) {
+            index = (i + slides.length) % slides.length;
+            container.style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        prevBtn.addEventListener("click", () => showSlide(index - 1));
+        nextBtn.addEventListener("click", () => showSlide(index + 1));
+
+        // Auto slide every 5 seconds
+        setInterval(() => showSlide(index + 1), 5000);
+        });
+    </script>
+    <script src="../js/userSession.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burgerMenu = document.querySelector('.burger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            burgerMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
+    <script src="../js/cartDisplay.js"></script> <!-- New script for global cart count -->
+    <script src="../js/featuredVouchers.js"></script> <!-- New script for dynamic featured vouchers -->
+    <script src="../js/search.js"></script> <!-- New script for search functionality -->
+</body>
+</html>
